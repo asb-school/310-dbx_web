@@ -1,0 +1,6 @@
+CPTR310 Database Application Programming
+Andrews University
+Fall 2012
+Dr. Roy Villafane
+
+JSF CRUD example: http://netbeans.org/kb/docs/web/jsf20-crud.html

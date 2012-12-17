@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewNpcTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewNpcLabel_id}"/>
+                    <h:outputText value="#{npcController.selected.id}" title="#{bundle.ViewNpcTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewNpcLabel_posX}"/>
+                    <h:outputText value="#{npcController.selected.posX}" title="#{bundle.ViewNpcTitle_posX}"/>
+                    <h:outputText value="#{bundle.ViewNpcLabel_posY}"/>
+                    <h:outputText value="#{npcController.selected.posY}" title="#{bundle.ViewNpcTitle_posY}"/>
+                    <h:outputText value="#{bundle.ViewNpcLabel_npcTypeId}"/>
+                    <h:outputText value="#{npcController.selected.npcTypeId}" title="#{bundle.ViewNpcTitle_npcTypeId}"/>
+                    <h:outputText value="#{bundle.ViewNpcLabel_regionId}"/>
+                    <h:outputText value="#{npcController.selected.regionId}" title="#{bundle.ViewNpcTitle_regionId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{npcController.destroyAndView}" value="#{bundle.ViewNpcDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewNpcEditLink}"/>
+                <br />
+                <h:commandLink action="#{npcController.prepareCreate}" value="#{bundle.ViewNpcCreateLink}" />
+                <br />
+                <h:commandLink action="#{npcController.prepareList}" value="#{bundle.ViewNpcShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewNpcIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

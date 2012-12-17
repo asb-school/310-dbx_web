@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPlayerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:outputText escape="false" value="ERROR: cannot modify if not logged in" rendered="#{sinfo.valid == false}"/>
+                <h:panelGrid columns="2" rendered="#{sinfo.valid == true}">
+                    <h:outputText value="#{bundle.ViewPlayerLabel_id}"/>
+                    <h:outputText value="#{playerController.selected.id}" title="#{bundle.ViewPlayerTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_name}"/>
+                    <h:outputText value="#{playerController.selected.name}" title="#{bundle.ViewPlayerTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_health}"/>
+                    <h:outputText value="#{playerController.selected.health}" title="#{bundle.ViewPlayerTitle_health}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_skillLevel}"/>
+                    <h:outputText value="#{playerController.selected.skillLevel}" title="#{bundle.ViewPlayerTitle_skillLevel}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_birthDate}"/>
+                    <h:outputText value="#{playerController.selected.birthDate}" title="#{bundle.ViewPlayerTitle_birthDate}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_posX}"/>
+                    <h:outputText value="#{playerController.selected.posX}" title="#{bundle.ViewPlayerTitle_posX}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_posY}"/>
+                    <h:outputText value="#{playerController.selected.posY}" title="#{bundle.ViewPlayerTitle_posY}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_loginName}"/>
+                    <h:outputText value="#{playerController.selected.loginName}" title="#{bundle.ViewPlayerTitle_loginName}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_loginPassword}"/>
+                    <h:outputText value="#{playerController.selected.loginPassword}" title="#{bundle.ViewPlayerTitle_loginPassword}"/>
+                    <h:outputText value="#{bundle.ViewPlayerLabel_regionId}"/>
+                    <h:outputText value="#{playerController.selected.regionId}" title="#{bundle.ViewPlayerTitle_regionId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{playerController.destroyAndView}" value="#{bundle.ViewPlayerDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPlayerEditLink}"/>
+                <br />
+                <h:commandLink action="#{playerController.prepareCreate}" value="#{bundle.ViewPlayerCreateLink}" />
+                <br />
+                <h:commandLink action="#{playerController.prepareList}" value="#{bundle.ViewPlayerShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPlayerIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

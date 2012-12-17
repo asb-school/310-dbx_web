@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNpcTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditNpcLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{npcController.selected.id}" title="#{bundle.EditNpcTitle_id}" required="true" requiredMessage="#{bundle.EditNpcRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditNpcLabel_posX}" for="posX" />
+                    <h:inputText id="posX" value="#{npcController.selected.posX}" title="#{bundle.EditNpcTitle_posX}" required="true" requiredMessage="#{bundle.EditNpcRequiredMessage_posX}"/>
+                    <h:outputLabel value="#{bundle.EditNpcLabel_posY}" for="posY" />
+                    <h:inputText id="posY" value="#{npcController.selected.posY}" title="#{bundle.EditNpcTitle_posY}" required="true" requiredMessage="#{bundle.EditNpcRequiredMessage_posY}"/>
+                    <h:outputLabel value="#{bundle.EditNpcLabel_npcTypeId}" for="npcTypeId" />
+                    <h:inputText id="npcTypeId" value="#{npcController.selected.npcTypeId}" title="#{bundle.EditNpcTitle_npcTypeId}" required="true" requiredMessage="#{bundle.EditNpcRequiredMessage_npcTypeId}"/>
+                    <h:outputLabel value="#{bundle.EditNpcLabel_regionId}" for="regionId" />
+                    <h:inputText id="regionId" value="#{npcController.selected.regionId}" title="#{bundle.EditNpcTitle_regionId}" required="true" requiredMessage="#{bundle.EditNpcRequiredMessage_regionId}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{npcController.update}" value="#{bundle.EditNpcSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditNpcViewLink}"/>
+                <br />
+                <h:commandLink action="#{npcController.prepareList}" value="#{bundle.EditNpcShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditNpcIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
